@@ -1,5 +1,6 @@
 package com.rifafauzi.example.projectcataloguemoviebasisdata;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,6 +13,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
+
+import com.rifafauzi.example.projectcataloguemoviebasisdata.Category.FavoriteActivity;
+import com.rifafauzi.example.projectcataloguemoviebasisdata.Category.MostPopularActivity;
+import com.rifafauzi.example.projectcataloguemoviebasisdata.Category.NowPlayingActivity;
+import com.rifafauzi.example.projectcataloguemoviebasisdata.Category.TopRatedActivity;
+import com.rifafauzi.example.projectcataloguemoviebasisdata.Category.UpComingActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -22,15 +30,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -80,18 +79,26 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        if (id == R.id.most_popular) {
+            Intent most = new Intent(getApplicationContext(), MostPopularActivity.class);
+            startActivity(most);
+            Toast.makeText(getApplicationContext(), "Show Most Popular Movies", Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.top_rated) {
+            Intent top = new Intent(getApplicationContext(), TopRatedActivity.class);
+            startActivity(top);
+            Toast.makeText(getApplicationContext(), "Show Top Rated Movies", Toast.LENGTH_SHORT);
+        } else if (id == R.id.now_playing) {
+            Intent now = new Intent(getApplicationContext(), NowPlayingActivity.class);
+            startActivity(now);
+            Toast.makeText(getApplicationContext(), "Show Now Playing Movies", Toast.LENGTH_SHORT);
+        } else if (id == R.id.upcoming) {
+            Intent up = new Intent(getApplicationContext(), UpComingActivity.class);
+            startActivity(up);
+            Toast.makeText(getApplicationContext(), "Show Up Coming Movies", Toast.LENGTH_SHORT);
+        } else if (id == R.id.favorite) {
+            Intent fav = new Intent(getApplicationContext(), FavoriteActivity.class);
+            startActivity(fav);
+            Toast.makeText(getApplicationContext(), "Show Up Coming Movies", Toast.LENGTH_SHORT);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

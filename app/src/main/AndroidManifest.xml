@@ -15,10 +15,21 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".DetailMovieActivity"
+            android:theme="@style/AppTheme.SplashScreen"/>
+        <activity android:name=".Category.MostPopularActivity"
+            android:label="Most Popular Movies"/>
+        <activity android:name=".Category.NowPlayingActivity"
+            android:label="Now Playing Movies"/>
+        <activity android:name=".Category.TopRatedActivity"
+            android:label="Top Rated Movies"/>
+        <activity android:name=".Category.UpComingActivity"
+            android:label="Up Coming Movies"/>
+        <activity android:name=".Category.FavoriteActivity"
+            android:label="Favorite Movies"/>
     </application>
 
 </manifest>
