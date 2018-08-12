@@ -2,9 +2,6 @@ package com.rifafauzi.example.projectcataloguemoviebasisdata;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -15,7 +12,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.rifafauzi.example.projectcataloguemoviebasisdata.Category.FavoriteActivity;
 import com.rifafauzi.example.projectcataloguemoviebasisdata.Category.MostPopularActivity;
 import com.rifafauzi.example.projectcataloguemoviebasisdata.Category.NowPlayingActivity;
 import com.rifafauzi.example.projectcataloguemoviebasisdata.Category.TopRatedActivity;
@@ -30,6 +26,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -86,19 +83,19 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.top_rated) {
             Intent top = new Intent(getApplicationContext(), TopRatedActivity.class);
             startActivity(top);
-            Toast.makeText(getApplicationContext(), "Show Top Rated Movies", Toast.LENGTH_SHORT);
+            Toast.makeText(getApplicationContext(), "Show Top Rated Movies", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.now_playing) {
             Intent now = new Intent(getApplicationContext(), NowPlayingActivity.class);
             startActivity(now);
-            Toast.makeText(getApplicationContext(), "Show Now Playing Movies", Toast.LENGTH_SHORT);
+            Toast.makeText(getApplicationContext(), "Show Now Playing Movies", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.upcoming) {
             Intent up = new Intent(getApplicationContext(), UpComingActivity.class);
             startActivity(up);
-            Toast.makeText(getApplicationContext(), "Show Up Coming Movies", Toast.LENGTH_SHORT);
+            Toast.makeText(getApplicationContext(), "Show Up Coming Movies", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.favorite) {
-            Intent fav = new Intent(getApplicationContext(), FavoriteActivity.class);
+            Intent fav = new Intent(getApplicationContext(), UpComingActivity.class);
             startActivity(fav);
-            Toast.makeText(getApplicationContext(), "Show Up Coming Movies", Toast.LENGTH_SHORT);
+            Toast.makeText(getApplicationContext(), "Show Favorite Movies", Toast.LENGTH_SHORT).show();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
