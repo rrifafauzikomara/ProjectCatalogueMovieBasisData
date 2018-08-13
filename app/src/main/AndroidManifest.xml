@@ -3,6 +3,11 @@
     package="com.rifafauzi.example.projectcataloguemoviebasisdata">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <permission android:name="com.dicoding.rifafauzi6.projectcataloguemoviebasisdata.READ_DATABASE"
+        android:protectionLevel="normal"/>
+    <permission android:name="com.dicoding.rifafauzi6.projectcataloguemoviebasisdata.WRITE_DATABASE"
+        android:protectionLevel="normal"/>
 
     <application
         android:allowBackup="true"
@@ -11,6 +16,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <provider
+            android:name=".Provider.FavoriteProvider"
+            android:authorities="com.dicoding.rifafauzi6.projectcataloguemoviebasisdata"
+            android:exported="true"
+            android:readPermission="com.dicoding.rifafauzi6.projectcataloguemoviebasisdata.READ_DATABASE"
+            android:writePermission="com.dicoding.rifafauzi6.projectcataloguemoviebasisdata.WRITE_DATABASE" />
         <activity
             android:name=".MainActivity"
             android:label="Catalogue Film"
