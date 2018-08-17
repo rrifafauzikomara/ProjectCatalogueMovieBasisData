@@ -1,22 +1,16 @@
 package com.rifafauzi.example.favoritemovie.Adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.CursorAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.rifafauzi.example.favoritemovie.Entity.MovieItem;
 import com.rifafauzi.example.favoritemovie.R;
+import com.squareup.picasso.Picasso;
 
 import static com.rifafauzi.example.favoritemovie.Db.DatabaseContract.FavoriteColumns.DESCRIPTION;
 import static com.rifafauzi.example.favoritemovie.Db.DatabaseContract.FavoriteColumns.NAME;
@@ -55,7 +49,7 @@ public class MovieAdapter extends CursorAdapter {
             textViewTitle.setText(getColumnString(cursor,NAME));
             textViewOverview.setText(getColumnString(cursor,DESCRIPTION));
             textViewRelease.setText(getColumnString(cursor,RELEASE_DATE));
-            Glide.with(context).load(getColumnString(cursor, POSTER)).placeholder(R.drawable.img_default_bg).error(R.drawable.img_default_bg).into(imgPoster);
+            Picasso.with(context).load(getColumnString(cursor, POSTER)).placeholder(R.drawable.img_default_bg).error(R.drawable.img_default_bg).into(imgPoster);
         }
     }
 }
