@@ -17,7 +17,7 @@ Aplikasi katalog movie untuk submission keempat beasiswa MADE (Menjadi Android D
 
 * [x] Tombol pada detail untuk menambahkan film favorit.
 * [x] Halaman untuk menampilkan list movie favorit.
-* [x] Menggunakan contentprovider.
+* [x] Menggunakan **contentprovider**.
 * [x] Membuat aplikasi baru yaitu aplikasi favorit (boleh dengan menggunakan module baru) untuk mengakses list favorit.
 
 
