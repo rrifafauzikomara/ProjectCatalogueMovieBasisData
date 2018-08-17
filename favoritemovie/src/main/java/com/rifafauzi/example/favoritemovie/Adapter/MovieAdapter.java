@@ -1,7 +1,9 @@
 package com.rifafauzi.example.favoritemovie.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +11,7 @@ import android.widget.CursorAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.rifafauzi.example.favoritemovie.DetailFavoriteActivity;
 import com.rifafauzi.example.favoritemovie.R;
 import com.squareup.picasso.Picasso;
 
@@ -41,17 +44,31 @@ public class MovieAdapter extends CursorAdapter {
             TextView textViewTitle, textViewOverview, textViewRelease;
             ImageView imgPoster;
 
+            final String loadPoster = "http://image.tmdb.org/t/p/w185" + getColumnString(cursor, POSTER);
+
             textViewTitle = view.findViewById(R.id.movie_name);
             textViewOverview = view.findViewById(R.id.movie_desc);
             textViewRelease = view.findViewById(R.id.movie_date);
             imgPoster = view.findViewById(R.id.movie_poster);
+            CardView cv_listMovie = view.findViewById(R.id.card_view);
+            cv_listMovie.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(context, DetailFavoriteActivity.class);
+                    i.putExtra("title", getColumnString(cursor,NAME));
+                    i.putExtra("poster_path", loadPoster);
+                    i.putExtra("overview", getColumnString(cursor,DESCRIPTION));
+                    i.putExtra("release_date", getColumnString(cursor,RELEASE_DATE));
+                    context.startActivity(i);
+                }
+            });
 
             textViewTitle.setText(getColumnString(cursor,NAME));
             textViewOverview.setText(getColumnString(cursor,DESCRIPTION));
             textViewRelease.setText(getColumnString(cursor,RELEASE_DATE));
-            Picasso.with(context).load("http://image.tmdb.org/t/p/w185" + getColumnString(cursor, POSTER))
-                    .placeholder(R.drawable.img_default_bg)
-                    .error(R.drawable.img_default_bg)
+            Picasso.with(context).load(loadPoster)
+                    .placeholder(R.drawable.loading)
+                    .error(R.drawable.error)
                     .into(imgPoster);
         }
     }

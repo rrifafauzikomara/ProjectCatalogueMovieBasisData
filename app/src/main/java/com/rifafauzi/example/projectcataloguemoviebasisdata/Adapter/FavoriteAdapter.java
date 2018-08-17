@@ -44,7 +44,8 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
         final Favorite favorite = getItem(position);
         Glide.with(context)
                 .load("http://image.tmdb.org/t/p/w185"+favorite.getPoster())
-                .placeholder(R.drawable.img_default_bg)
+                .placeholder(R.drawable.loading)
+                .error(R.drawable.error)
                 .into(holder.gmb);
         holder.judul.setText(favorite.getName());
         holder.desc.setText(favorite.getDescription());

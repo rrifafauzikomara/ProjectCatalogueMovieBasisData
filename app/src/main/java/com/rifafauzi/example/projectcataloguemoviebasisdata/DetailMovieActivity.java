@@ -59,7 +59,8 @@ public class DetailMovieActivity extends AppCompatActivity {
 
         Glide.with(getApplicationContext())
                 .load("http://image.tmdb.org/t/p/w185"+img)
-                .placeholder(R.drawable.img_default_bg)
+                .placeholder(R.drawable.loading)
+                .error(R.drawable.error)
                 .into(tvImg);
         tvJudul.setText(judul);
         tvDesc.setText(desc);

@@ -3,10 +3,9 @@
     package="com.rifafauzi.example.favoritemovie">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-
-    <permission android:name="com.rifafauzi.example.projectcataloguemoviebasisdata.READ_DATABASE"/>
-    <permission android:name="com.rifafauzi.example.projectcataloguemoviebasisdata.WRITE_DATABASE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="com.rifafauzi.example.projectcataloguemoviebasisdata.READ_DATABASE" />
+    <uses-permission android:name="com.rifafauzi.example.projectcataloguemoviebasisdata.WRITE_DATABASE" />
 
     <application
         android:allowBackup="true"
@@ -18,9 +17,12 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".DetailFavoriteActivity"
+            android:theme="@style/AppTheme.SplashScreen"/>
     </application>
 
 </manifest>
