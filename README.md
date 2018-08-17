@@ -20,6 +20,7 @@ Aplikasi katalog movie untuk submission keempat beasiswa MADE (Menjadi Android D
 * [x] Menggunakan contentprovider.
 * [x] Membuat aplikasi baru yaitu aplikasi favorit (boleh dengan menggunakan module baru) untuk mengakses list favorit.
 
+
 ### Petunjuk menjalankan source code aplikasi
 
 Untuk menjalankan source code aplikasi ini, anda perlu registrasi API KEY dari www.themoviedb.org
