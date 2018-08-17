@@ -5,12 +5,12 @@ Aplikasi katalog movie untuk submission keempat beasiswa MADE (Menjadi Android D
 ### Screenshots Aplikasi Pertama
 
 <pre>
-<img src="Screenshot/1.png" width="250" height="444">         <img src="Screenshot/2.png" width="250" height="444">         <img src="Screenshot/3.png" width="250" height="444">         <img src="Screenshot/4.png" width="250" height="444">         <img src="Screenshot/5.png" width="250" height="444">
+<img src="Screenshoot/1.jpg" width="250" height="444">         <img src="Screenshoot/2.jpg" width="250" height="444">         <img src="Screenshoot/3.jpg" width="250" height="444">         <img src="Screenshoot/4.jpg" width="250" height="444">         <img src="Screenshoot/5.jpg" width="250" height="444">
 </pre>
 
 ### Screenshots Aplikasi Kedua (***New Module***)
 <pre>
-<img src="Screenshot/6.png" width="250" height="444">         <img src="Screenshot/7.png" width="250" height="444">         <img src="Screenshot/Screenshot_2018-06-22-12-58-15.png" width="250" height="444">         <img src="Screenshot/Screenshot_2018-06-22-12-58-35.png" width="250" height="444">         <img src="Screenshot/Screenshot_2018-06-22-12-58-38.png" width="250" height="444">
+<img src="Screenshoot/6.jpg" width="250" height="444">         <img src="Screenshoot/7.jpg" width="250" height="444">
 </pre>
 
 ### Persyaratan aplikasi
