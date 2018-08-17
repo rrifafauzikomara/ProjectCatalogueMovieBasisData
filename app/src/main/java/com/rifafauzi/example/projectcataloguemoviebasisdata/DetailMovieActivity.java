@@ -16,6 +16,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.rifafauzi.example.projectcataloguemoviebasisdata.Db.DatabaseContract;
 
+import static com.rifafauzi.example.projectcataloguemoviebasisdata.Db.DatabaseContract.FavoriteColumns.CONTENT_URI;
+
 public class DetailMovieActivity extends AppCompatActivity {
 
     String img, judul, desc, tgl;
@@ -66,7 +68,7 @@ public class DetailMovieActivity extends AppCompatActivity {
     }
 
     public boolean setFavorite(){
-        Uri uri = Uri.parse(DatabaseContract.CONTENT_URI+"");
+        Uri uri = Uri.parse(CONTENT_URI+"");
         boolean favorite = false;
         Cursor cursor = getContentResolver().query(uri, null, null, null, null);
 
@@ -89,7 +91,7 @@ public class DetailMovieActivity extends AppCompatActivity {
 
     public void favorite (View view) {
         if(setFavorite()){
-            Uri uri = Uri.parse(DatabaseContract.CONTENT_URI+"/"+id);
+            Uri uri = Uri.parse(CONTENT_URI+"/"+id);
             getContentResolver().delete(uri, null, null);
             fvFav.setImageResource(R.drawable.ic_star_unchecked);
         }
@@ -100,7 +102,7 @@ public class DetailMovieActivity extends AppCompatActivity {
             values.put(DatabaseContract.FavoriteColumns.RELEASE_DATE, tgl);
             values.put(DatabaseContract.FavoriteColumns.DESCRIPTION, desc);
 
-            getContentResolver().insert(DatabaseContract.CONTENT_URI, values);
+            getContentResolver().insert(CONTENT_URI, values);
             setResult(101);
 
             fvFav.setImageResource(R.drawable.ic_star_checked);

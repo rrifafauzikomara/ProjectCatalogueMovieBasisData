@@ -3,6 +3,7 @@ package com.rifafauzi.example.projectcataloguemoviebasisdata.Adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,8 +22,11 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
     private Context context;
     private Cursor listFavorite;
 
-    public FavoriteAdapter(Context context, Cursor listFavorite){
+    public FavoriteAdapter(Context context){
         this.context = context;
+    }
+
+    public void setListFavorite(Cursor listFavorite) {
         this.listFavorite = listFavorite;
     }
 
@@ -45,14 +49,24 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
         holder.judul.setText(favorite.getName());
         holder.desc.setText(favorite.getDescription());
         holder.tgl.setText(favorite.getDate());
+        holder.cv_listMovie.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, DetailMovieActivity.class);
+                i.putExtra("title", favorite.getName());
+                i.putExtra("poster_path", favorite.getPoster());
+                i.putExtra("overview", favorite.getDescription());
+                i.putExtra("release_date", favorite.getDate());
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(i);
+            }
+        });
         Log.e("DATE", ""+favorite.getDate());
     }
 
     @Override
     public int getItemCount() {
-        if (listFavorite == null){
-            return 0;
-        }
+        if (listFavorite == null) return 0;
         return listFavorite.getCount();
     }
 
@@ -63,34 +77,20 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
         return new Favorite(listFavorite);
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
 
-        private ImageView gmb;
-        private TextView judul, tgl, desc;
+        ImageView gmb;
+        TextView judul, tgl, desc;
+        CardView cv_listMovie;
 
-        public ViewHolder(View itemView) {
+        ViewHolder(View itemView) {
             super(itemView);
 
             gmb = itemView.findViewById(R.id.movie_poster);
             judul = itemView.findViewById(R.id.movie_name);
             desc = itemView.findViewById(R.id.movie_desc);
             tgl = itemView.findViewById(R.id.movie_date);
-
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int mPosition = getLayoutPosition();
-                    Favorite favorite = getItem(mPosition);
-
-                    Intent i = new Intent(context, DetailMovieActivity.class);
-                    i.putExtra("title", favorite.getName());
-                    i.putExtra("poster_path", favorite.getPoster());
-                    i.putExtra("overview", favorite.getDescription());
-                    i.putExtra("release_date", favorite.getDate());
-                    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    context.startActivity(i);
-                }
-            });
+            cv_listMovie = itemView.findViewById(R.id.card_view);
         }
     }
 

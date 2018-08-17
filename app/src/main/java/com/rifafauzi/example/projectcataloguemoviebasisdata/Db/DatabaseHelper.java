@@ -4,6 +4,13 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import static com.rifafauzi.example.projectcataloguemoviebasisdata.Db.DatabaseContract.FavoriteColumns._ID;
+import static com.rifafauzi.example.projectcataloguemoviebasisdata.Db.DatabaseContract.FavoriteColumns.NAME;
+import static com.rifafauzi.example.projectcataloguemoviebasisdata.Db.DatabaseContract.FavoriteColumns.POSTER;
+import static com.rifafauzi.example.projectcataloguemoviebasisdata.Db.DatabaseContract.FavoriteColumns.RELEASE_DATE;
+import static com.rifafauzi.example.projectcataloguemoviebasisdata.Db.DatabaseContract.FavoriteColumns.DESCRIPTION;
+import static com.rifafauzi.example.projectcataloguemoviebasisdata.Db.DatabaseContract.FavoriteColumns.TABLE_FAVORITE;
+
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     public static String DATABASE_NAME = "db_favorite";
@@ -16,12 +23,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     " %s TEXT NOT NULL," +
                     " %s TEXT NOT NULL," +
                     " %s TEXT NOT NULL)",
-            DatabaseContract.TABLE_FAVORITE,
-            DatabaseContract.FavoriteColumns._ID,
-            DatabaseContract.FavoriteColumns.NAME,
-            DatabaseContract.FavoriteColumns.POSTER,
-            DatabaseContract.FavoriteColumns.RELEASE_DATE,
-            DatabaseContract.FavoriteColumns.DESCRIPTION
+            TABLE_FAVORITE,
+            _ID,
+            NAME,
+            POSTER,
+            RELEASE_DATE,
+            DESCRIPTION
     );
 
     public DatabaseHelper(Context context) {
@@ -35,7 +42,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS "+ DatabaseContract.TABLE_FAVORITE);
+        db.execSQL("DROP TABLE IF EXISTS "+ TABLE_FAVORITE);
         onCreate(db);
     }
 }

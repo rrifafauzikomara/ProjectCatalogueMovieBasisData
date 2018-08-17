@@ -1,4 +1,4 @@
-package com.rifafauzi.example.projectcataloguemoviebasisdata.Provider;
+package com.rifafauzi.example.projectcataloguemoviebasisdata.provider;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
@@ -7,8 +7,11 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 
-import com.rifafauzi.example.projectcataloguemoviebasisdata.Db.DatabaseContract;
 import com.rifafauzi.example.projectcataloguemoviebasisdata.Db.FavoriteHelper;
+
+import static com.rifafauzi.example.projectcataloguemoviebasisdata.Db.DatabaseContract.AUTHORITY;
+import static com.rifafauzi.example.projectcataloguemoviebasisdata.Db.DatabaseContract.FavoriteColumns.CONTENT_URI;
+import static com.rifafauzi.example.projectcataloguemoviebasisdata.Db.DatabaseContract.FavoriteColumns.TABLE_FAVORITE;
 
 public class FavoriteProvider extends ContentProvider {
 
@@ -19,9 +22,9 @@ public class FavoriteProvider extends ContentProvider {
 
     static {
 
-        sUriMatcher.addURI(DatabaseContract.AUTHORITY, DatabaseContract.TABLE_FAVORITE, FAVORITE);
-        sUriMatcher.addURI(DatabaseContract.AUTHORITY,
-                DatabaseContract.TABLE_FAVORITE+ "/#",
+        sUriMatcher.addURI(AUTHORITY, TABLE_FAVORITE, FAVORITE);
+        sUriMatcher.addURI(AUTHORITY,
+                TABLE_FAVORITE+ "/#",
                 FAVORITE_ID);
     }
 
@@ -79,7 +82,7 @@ public class FavoriteProvider extends ContentProvider {
         if (added > 0) {
             getContext().getContentResolver().notifyChange(uri, null);
         }
-        return Uri.parse(DatabaseContract.CONTENT_URI + "/" + added);
+        return Uri.parse(CONTENT_URI + "/" + added);
     }
 
 

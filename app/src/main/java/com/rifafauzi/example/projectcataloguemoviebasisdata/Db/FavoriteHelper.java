@@ -7,8 +7,16 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.rifafauzi.example.projectcataloguemoviebasisdata.Entity.Favorite;
+
+import java.util.ArrayList;
+
 import static android.provider.BaseColumns._ID;
-import static com.rifafauzi.example.projectcataloguemoviebasisdata.Db.DatabaseContract.TABLE_FAVORITE;
+import static com.rifafauzi.example.projectcataloguemoviebasisdata.Db.DatabaseContract.FavoriteColumns.DESCRIPTION;
+import static com.rifafauzi.example.projectcataloguemoviebasisdata.Db.DatabaseContract.FavoriteColumns.NAME;
+import static com.rifafauzi.example.projectcataloguemoviebasisdata.Db.DatabaseContract.FavoriteColumns.POSTER;
+import static com.rifafauzi.example.projectcataloguemoviebasisdata.Db.DatabaseContract.FavoriteColumns.RELEASE_DATE;
+import static com.rifafauzi.example.projectcataloguemoviebasisdata.Db.DatabaseContract.FavoriteColumns.TABLE_FAVORITE;
 
 public class FavoriteHelper {
 
@@ -26,6 +34,36 @@ public class FavoriteHelper {
         dataBaseHelper = new DatabaseHelper(context);
         database = dataBaseHelper.getWritableDatabase();
         return this;
+    }
+
+    public ArrayList<Favorite> query() {
+        ArrayList<Favorite> arrayList = new ArrayList<Favorite>();
+        Cursor cursor = database.query(DATABASE_TABLE
+                , null
+                , null
+                , null
+                , null
+                , null, _ID + " DESC"
+                , null);
+        cursor.moveToFirst();
+        Favorite favorite;
+        if (cursor.getCount() > 0) {
+            do {
+
+                favorite = new Favorite();
+                favorite.setId(cursor.getInt(cursor.getColumnIndexOrThrow(_ID)));
+                favorite.setName(cursor.getString(cursor.getColumnIndexOrThrow(NAME)));
+                favorite.setPoster(cursor.getString(cursor.getColumnIndexOrThrow(POSTER)));
+                favorite.setDescription(cursor.getString(cursor.getColumnIndexOrThrow(DESCRIPTION)));
+                favorite.setDate(cursor.getString(cursor.getColumnIndexOrThrow(RELEASE_DATE)));
+
+                arrayList.add(favorite);
+                cursor.moveToNext();
+
+            } while (!cursor.isAfterLast());
+        }
+        cursor.close();
+        return arrayList;
     }
 
     public Cursor queryByIdProvider(String id){
@@ -49,7 +87,7 @@ public class FavoriteHelper {
     }
 
     public long insertProvider(ContentValues values){
-        Log.e("CONTENT VALUES :", ""+values.toString());
+//        Log.e("CONTENT VALUES :", ""+values.toString());
         return database.insert(DATABASE_TABLE,null, values);
     }
 

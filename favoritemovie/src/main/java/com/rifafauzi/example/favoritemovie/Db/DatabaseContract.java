@@ -1,15 +1,13 @@
-package com.rifafauzi.example.projectcataloguemoviebasisdata.Db;
+package com.rifafauzi.example.favoritemovie.Db;
 
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.BaseColumns;
 
-public final class DatabaseContract {
+public class DatabaseContract {
 
     public static final String AUTHORITY = "com.rifafauzi.example.projectcataloguemoviebasisdata";
     public static final String SCHEME = "content";
-
-    private DatabaseContract(){}
 
     public static final class FavoriteColumns implements BaseColumns {
 
@@ -36,4 +34,3 @@ public final class DatabaseContract {
     }
 
 }
-
