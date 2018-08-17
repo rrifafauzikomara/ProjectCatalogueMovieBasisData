@@ -2,14 +2,15 @@
 
 Aplikasi katalog movie untuk submission keempat beasiswa MADE (Menjadi Android Developer Expert) dari Dicoding https://www.dicoding.com/academies/14/.
 
-## Screenshots
+### Screenshots Aplikasi Pertama
 
 <pre>
-<img src="Screenshot/Screenshot_2018-06-22-12-54-22.png" width="250" height="444">         <img src="Screenshot/Screenshot_2018-06-22-12-54-30.png" width="250" height="444">         <img src="Screenshot/Screenshot_2018-06-22-12-54-41.png" width="250" height="444">         <img src="Screenshot/Screenshot_2018-06-22-12-54-57.png" width="250" height="444">         <img src="Screenshot/Screenshot_2018-06-22-12-55-10.png" width="250" height="444">         <img src="Screenshot/Screenshot_2018-06-22-12-55-20.png" width="250" height="444">
+<img src="Screenshot/1.png" width="250" height="444">         <img src="Screenshot/2.png" width="250" height="444">         <img src="Screenshot/3.png" width="250" height="444">         <img src="Screenshot/4.png" width="250" height="444">         <img src="Screenshot/5.png" width="250" height="444">
 </pre>
 
+### Screenshots Aplikasi Kedua (***New Module***)
 <pre>
-<img src="Screenshot/Screenshot_2018-06-22-12-55-34.png" width="250" height="444">         <img src="Screenshot/Screenshot_2018-06-22-12-55-43.png" width="250" height="444">         <img src="Screenshot/Screenshot_2018-06-22-12-58-15.png" width="250" height="444">         <img src="Screenshot/Screenshot_2018-06-22-12-58-35.png" width="250" height="444">         <img src="Screenshot/Screenshot_2018-06-22-12-58-38.png" width="250" height="444">
+<img src="Screenshot/6.png" width="250" height="444">         <img src="Screenshot/7.png" width="250" height="444">         <img src="Screenshot/Screenshot_2018-06-22-12-58-15.png" width="250" height="444">         <img src="Screenshot/Screenshot_2018-06-22-12-58-35.png" width="250" height="444">         <img src="Screenshot/Screenshot_2018-06-22-12-58-38.png" width="250" height="444">
 </pre>
 
 ### Persyaratan aplikasi
