@@ -59,10 +59,4 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         adapterFavorite.swapCursor(null);
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        getSupportLoaderManager().destroyLoader(LOAD_NOTES_ID);
-    }
-
 }

@@ -49,7 +49,10 @@ public class MovieAdapter extends CursorAdapter {
             textViewTitle.setText(getColumnString(cursor,NAME));
             textViewOverview.setText(getColumnString(cursor,DESCRIPTION));
             textViewRelease.setText(getColumnString(cursor,RELEASE_DATE));
-            Picasso.with(context).load(getColumnString(cursor, POSTER)).placeholder(R.drawable.img_default_bg).error(R.drawable.img_default_bg).into(imgPoster);
+            Picasso.with(context).load("http://image.tmdb.org/t/p/w185" + getColumnString(cursor, POSTER))
+                    .placeholder(R.drawable.img_default_bg)
+                    .error(R.drawable.img_default_bg)
+                    .into(imgPoster);
         }
     }
 }

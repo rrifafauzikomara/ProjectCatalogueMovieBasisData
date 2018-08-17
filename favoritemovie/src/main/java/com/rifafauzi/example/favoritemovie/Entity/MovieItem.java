@@ -4,8 +4,6 @@ import android.database.Cursor;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.rifafauzi.example.favoritemovie.Db.DatabaseContract;
-
 import static android.provider.BaseColumns._ID;
 import static com.rifafauzi.example.favoritemovie.Db.DatabaseContract.FavoriteColumns.DESCRIPTION;
 import static com.rifafauzi.example.favoritemovie.Db.DatabaseContract.FavoriteColumns.NAME;
