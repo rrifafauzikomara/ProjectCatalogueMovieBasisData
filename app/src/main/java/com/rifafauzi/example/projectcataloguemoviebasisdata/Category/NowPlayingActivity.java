@@ -1,11 +1,11 @@
 package com.rifafauzi.example.projectcataloguemoviebasisdata.Category;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.rifafauzi.example.projectcataloguemoviebasisdata.API.BaseApiService;
@@ -14,7 +14,6 @@ import com.rifafauzi.example.projectcataloguemoviebasisdata.Adapter.MovieAdapter
 import com.rifafauzi.example.projectcataloguemoviebasisdata.BuildConfig;
 import com.rifafauzi.example.projectcataloguemoviebasisdata.Entity.Movies;
 import com.rifafauzi.example.projectcataloguemoviebasisdata.Entity.ResponseMovies;
-import com.rifafauzi.example.projectcataloguemoviebasisdata.MainActivity;
 import com.rifafauzi.example.projectcataloguemoviebasisdata.R;
 
 import java.util.ArrayList;
@@ -84,15 +83,20 @@ public class NowPlayingActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onSupportNavigateUp() {
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(intent);
-        return true;
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home : {
+                finish();
+                overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+                break;
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(intent);
+        super.onBackPressed();
+        overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
     }
 }
